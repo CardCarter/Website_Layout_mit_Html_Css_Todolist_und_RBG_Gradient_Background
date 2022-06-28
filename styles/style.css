@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+/* "*" ist das Zeichen für universal geltende Eigenschaften*/
+* {
+    font-family: 'Staatliches', cursive;
+    padding: 0;
+    margin: 0;
+}
+
+/* Variablen werden in CSS mit "--" geschrieben */
+
+:root {
+    --bgcolor: #C689C6;
+    --c1:#FF8C8C;
+    --c2:#F6C6EA;
+    --c3:#DAEAF1;
+    --c4:#FAD4D4;
+    --c5:#FF5D5D;
+    --c6:#E3FCBF;
+}
+
+body {
+    background: var(--bgcolor);
+    height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns:repeat(12, 1fr);
+    grid-template-rows:repeat(12, 1fr);
+}
+
+.item{
+    font-size: 1.5em;
+    color: dimgrey;
+}
+
+.item.head {
+    background: aqua;
+    grid-column: 1 / span 12;
+    grid-row: 1 / span 1;
+}
+
+.item.body{
+    grid-column: 2 / span 10;
+    grid-row: 3 / span 9;
+
+}
+
+.item.fu {
+    background: chartreuse;
+    grid-column: 1 / span 12;
+    grid-row: 12 / span 1;
+}
+
+.item.smR{
+    background: darkblue;
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 10;
+}
+
+.item.smL{
+    background: darkblue;
+    grid-column: 12 / span 1;
+    grid-row: 2 / span 10;
+}
+
+.item.nav{
+    background: chocolate;
+    grid-column: 2 / span 10;
+    grid-row: 2 / span 1;
+}
+
+/*Teil 2: Animated Gradient background*/
+
+.body{
+    background: radial-gradient(ellipse at top,var(--c1), var(--c2), var(--c3),transparent), radial-gradient(ellipse at top,var(--c4), var(--c5), var(--c6),transparent);
+    background-size: 400% 400%;
+    -webkit-animation:prettyBG 12s ease-in-out infinite;
+}
+
+@-webkit-keyframes prettyBG {
+    0%{background-position:0 50%}
+    50%{background-position:100% 100%}
+    100%{background-position:0 50%}
+}
